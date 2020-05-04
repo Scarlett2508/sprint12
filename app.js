@@ -9,12 +9,8 @@ app.use(express.static(`${__dirname}/public`));
 app.use('/', userRoutes);
 app.use('/', cardRoutes);
 
-app.get('*', (req, res) => {
+app.all('*', (req, res) => {
   res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
 });
 
 app.listen(PORT);
-
-// app.listen(PORT, () => {
-//   console.log(`App listening on port ${PORT}`);
-// })
